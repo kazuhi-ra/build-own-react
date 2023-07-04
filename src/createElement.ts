@@ -1,17 +1,18 @@
 type TagName = keyof HTMLElementTagNameMap
+type Children = Element[]
 
 type Element = {
   type: TagName
   props: {
     [key: string]: any
-    children: Element[]
+    children: Children
   }
 }
 
 export const createElement = (
   type: TagName,
   props: Record<string, any>,
-  ...children: Element[]
+  ...children: Children
 ): Element => ({
   type,
   props: {
