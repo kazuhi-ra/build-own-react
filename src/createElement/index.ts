@@ -11,7 +11,7 @@ type Element = {
 
 export const createElement = (
   type: TagName,
-  props: Record<string, any>,
+  props?: Record<string, any> | null,
   ...children: Children
 ): Element => ({
   type,
