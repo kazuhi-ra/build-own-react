@@ -1,7 +1,8 @@
-type TagName = 'TEXT_ELEMENT' | keyof HTMLElementTagNameMap
+type TagName = keyof HTMLElementTagNameMap
+type ElementType = TagName | 'TEXT_ELEMENT'
 type Children = (string | number | Element)[]
 type Element = {
-  type: TagName
+  type: ElementType
   props: {
     [key: string]: any
     nodeValue?: string
@@ -10,7 +11,7 @@ type Element = {
 }
 
 export const createElement = (
-  type: TagName,
+  type: ElementType,
   props?: Record<string, any> | null,
   ...children: Children
 ): Element => ({
